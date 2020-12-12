@@ -15,10 +15,11 @@ module.exports = {
         use: 'vue-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'vue-style-loader',
           'css-loader',
+          'sass-loader',
         ],
       },
     ],

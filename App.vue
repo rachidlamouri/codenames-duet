@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Hello</h1>
     <div
       v-for="{ index, word } in cards"
       :key="index"
@@ -42,3 +43,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  @import './colors';
+
+  * {
+    color: $primary;
+  }
+</style>
