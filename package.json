@@ -1,15 +1,20 @@
 {
   "scripts": {
     "build": "webpack",
+    "lint": "eslint --ext js,vue .",
     "start": "webpack-dev-server"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run build"
+      "pre-push": "npm run lint && npm run build"
     }
   },
   "devDependencies": {
     "css-loader": "5.0.1",
+    "eslint": "7.15.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-vue": "7.2.0",
     "html-webpack-plugin": "4.5.0",
     "husky": "4.3.5",
     "vue": "2.6.12",
