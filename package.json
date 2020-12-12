@@ -3,10 +3,16 @@
     "build": "webpack",
     "start": "webpack-dev-server"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run build"
+    }
+  },
   "dependencies": {},
   "devDependencies": {
     "css-loader": "5.0.1",
     "html-webpack-plugin": "4.5.0",
+    "husky": "4.3.5",
     "vue": "2.6.12",
     "vue-loader": "15.9.5",
     "vue-template-compiler": "2.6.12",
