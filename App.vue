@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>Hello</h1>
+    <div id="title">
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+    </div>
     <div
       v-for="{ index, word } in cards"
       :key="index"
@@ -49,5 +52,14 @@ export default {
 
   * {
     color: $primary;
+  }
+
+  #title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #title h1:nth-of-type(2) {
+    transform: rotate(-180deg);
   }
 </style>
