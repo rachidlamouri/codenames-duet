@@ -5,42 +5,55 @@
       <h1>Hello</h1>
     </div>
     <div
-      v-for="{ index, word } in cards"
-      :key="index"
+      v-for="{ id, word } in cards"
+      :key="`card-${id}`"
     >
       {{ word }}
     </div>
     <button @click="reset">
       Reset
     </button>
+    <player-board
+      v-for="player in players"
+      :key="`player-${player.id}`"
+      :player="player"
+      @updateSuccessfulTurnCount="updateSuccessfulTurnCount"
+    />
   </div>
 </template>
 
 <script>
-const dictionary = require('./dictionary');
+import PlayerBoard from './PlayerBoard.vue';
+import dictionary from './dictionary';
 
 const getWord = () => {
   const wordIndex = Math.floor(Math.random() * dictionary.length);
   return dictionary[wordIndex];
 };
 
-const makeCardState = (word, index) => ({
-  index,
-  word,
+const makeCardState = (id) => ({
+  id,
+  word: getWord(),
   isAssassin: [false, false],
   isAgent: [false, false],
   isBystander: [false, false],
 });
 
-const makePlayerState = () => ({
+const makePlayerState = (id) => ({
+  id,
   successfulTurnCount: 0,
 });
 
+const range = (count) => Array.from({ length: count }).map((value, index) => index);
+
 export default {
+  components: {
+    PlayerBoard,
+  },
   data() {
     return {
-      cards: Array.from({ length: 25 }).map((value, index) => makeCardState(getWord(), index)),
-      players: [makePlayerState(), makePlayerState()],
+      cards: range(25).map((index) => makeCardState(index)),
+      players: range(2).map((index) => makePlayerState(index)),
       sideboard: {
         maxTurns: 9,
       },
@@ -50,15 +63,30 @@ export default {
     reset() {
       window.location.reload();
     },
+    updateSuccessfulTurnCount({ playerId, count }) {
+      this.players[playerId].successfulTurnCount = count;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-  @import './colors';
+  @import './variables';
 
   * {
-    color: $primary;
+    box-sizing: border-box;
+    color: $text;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+
+  .counter-like {
+    width: $counter-size;
+    height: $counter-size;
+    border: 1px solid $borders;
+    border-radius: 10px;
+    margin-left: $padding-sm;
   }
 
   #title {
