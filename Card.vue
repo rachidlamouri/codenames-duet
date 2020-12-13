@@ -119,9 +119,10 @@ export default {
   flex-direction: column;
   flex: 1;
   margin: $card-margin;
-  border: 1px solid black;
+  border: 1px solid $borders;
   border-radius: 5px;
   font-size: 25px;
+  background-color: $accent-light;
 
   .word {
     padding: $padding-lg;
@@ -133,17 +134,17 @@ export default {
     }
 
     &.agent {
-      color: white;
+      color: $accent-light;
       background-color: $success;
     }
 
     &.assassin {
-      color: white;
+      color: $accent-light;
       background-color: $assassin;
     }
 
     &.innocent-bystander {
-      color: white;
+      color: $accent-light;
       background-color: $accent-dark;
     }
   }

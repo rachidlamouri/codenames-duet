@@ -61,6 +61,7 @@ export default {
     }
 
     .add-counter {
+      background-color: $accent-light;
       border-radius: 100%;
     }
   }
