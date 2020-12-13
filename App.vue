@@ -1,21 +1,26 @@
 <template>
-  <div>
-    <div id="title">
-      <h1>Hello</h1>
-      <h1>Hello</h1>
+  <div id="root">
+    <div id="sideboard">
+      <button @click="reset">
+        Reset
+      </button>
     </div>
-    <div
-      v-for="{ id, word } in cards"
-      :key="`card-${id}`"
-    >
-      {{ word }}
+    <div id="cardboard">
+      <div id="title">
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+      </div>
+      <div
+        v-for="{ id, word } in cards"
+        :key="`card-${id}`"
+      >
+        {{ word }}
+      </div>
     </div>
-    <button @click="reset">
-      Reset
-    </button>
     <player-board
       v-for="player in players"
-      :key="`player-${player.id}`"
+      :key="`player-board-${player.id}`"
+      :class="`player-board-${player.id}`"
       :player="player"
       @updateSuccessfulTurnCount="updateSuccessfulTurnCount"
     />
@@ -79,6 +84,39 @@ export default {
     margin: 0px;
     padding: 0px;
     border: none;
+  }
+
+  $edge-board-size: 100px;
+  #root {
+    display: grid;
+    grid-template-columns: $edge-board-size auto;
+    grid-template-rows: $edge-board-size auto $edge-board-size;
+    width: 100%;
+    height: 100%;
+    padding: $padding-lg;
+  }
+
+  #sideboard {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+
+  .player-board-0 {
+    grid-column-start: 2;
+    grid-row-end: 2;
+  }
+
+  #cardboard {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .player-board-1 {
+    grid-column-start: 2;
+    grid-row-start: 3;
   }
 
   .counter-like {

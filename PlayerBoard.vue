@@ -47,6 +47,17 @@ export default {
 
   .player-board {
     display: flex;
+    align-items: center;
+
+    $starting-edge-offset: 400px;
+    &.player-board-0 {
+      flex-direction: row-reverse;
+      padding-right: $starting-edge-offset;
+    }
+
+    &.player-board-1 {
+      padding-left: $starting-edge-offset;
+    }
 
     .add-counter {
       border-radius: 100px;
