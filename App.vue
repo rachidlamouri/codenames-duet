@@ -83,6 +83,7 @@ export default {
     margin: 0px;
     padding: 0px;
     border: none;
+    outline: none;
   }
 
   $edge-board-size: 100px;
