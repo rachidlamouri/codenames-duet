@@ -17,6 +17,13 @@
 </template>
 
 <script>
+const dictionary = require('./dictionary');
+
+const getWord = () => {
+  const wordIndex = Math.floor(Math.random() * dictionary.length);
+  return dictionary[wordIndex];
+};
+
 const makeCardState = (word, index) => ({
   index,
   word,
@@ -32,7 +39,7 @@ const makePlayerState = () => ({
 export default {
   data() {
     return {
-      cards: Array.from({ length: 25 }).map((value, index) => makeCardState(index, index)),
+      cards: Array.from({ length: 25 }).map((value, index) => makeCardState(getWord(), index)),
       players: [makePlayerState(), makePlayerState()],
       sideboard: {
         maxTurns: 9,
