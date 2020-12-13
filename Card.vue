@@ -1,9 +1,8 @@
 <template>
   <div class="card">
-    <div class="word">
-      <div>{{ card.word }}</div>
-      <div>{{ card.word }}</div>
-    </div>
+    <div class="word top">{{ card.word }}</div>
+    <div class="space" />
+    <div class="word bottom">{{ card.word }}</div>
   </div>
 </template>
 
@@ -20,30 +19,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import './variables';
 
 .card {
-  width: 18%;
   display: flex;
-  border: 1px solid black;
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  color: black;
   flex-direction: column;
-  justify-content: center;
-  font-size: 18pt;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex: 1;
+  margin: $card-margin;
+  padding: $padding-lg;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 25px;
 
   .word {
-    div {
-      margin: 0;
-    }
+    height: 20px;
 
-    div:nth-of-type(1) {
+    &.bottom {
       transform: rotate(-180deg);
-      font-variant: all-petite-caps;
+      font-style: italic;
     }
+  }
 
+  .space {
+    flex-grow: 1;
   }
 }
 

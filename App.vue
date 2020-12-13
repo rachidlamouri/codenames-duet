@@ -5,7 +5,10 @@
       :sideboard="sideboard"
       :turns-taken="turnsTaken"
     />
-    <card-board :cards="cards" />
+    <card-board
+      id="card-board"
+      :cards="cards"
+    />
     <player-board
       v-for="player in players"
       :key="`player-board-${player.id}`"
@@ -29,7 +32,7 @@ const getWord = () => {
 
 const makeCardState = (id) => ({
   id,
-  word: getWord(),
+  word: getWord().toUpperCase(),
   isAssassin: [false, false],
   isAgent: [false, false],
   isBystander: [false, false],
@@ -84,6 +87,7 @@ export default {
     padding: 0px;
     border: none;
     outline: none;
+    font-family: sans-serif;
   }
 
   $edge-board-size: 100px;

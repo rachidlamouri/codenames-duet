@@ -1,10 +1,16 @@
 <template>
   <div class="card-board">
-    <card
-      v-for="card in cards"
-      :key="card.id"
-      :card="card"
-    />
+    <div
+      v-for="rowId in 5"
+      :key="`card-row-${rowId}`"
+      class="row"
+    >
+      <card
+        v-for="card in getCards(rowId - 1)"
+        :key="`card-${card.id}`"
+        :card="card"
+      />
+    </div>
   </div>
 </template>
 
@@ -21,14 +27,28 @@ export default {
       required: true,
     },
   },
+  methods: {
+    getCards(rowId) {
+      const start = rowId * 5;
+      return this.cards.slice(start, start + 5);
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-.card-board {
+@import './variables';
+
+#card-board {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  padding: $card-margin;
+
+  .row {
+    display: flex;
+    flex: 1;
+  }
 }
 </style>
