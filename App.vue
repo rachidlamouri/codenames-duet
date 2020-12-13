@@ -5,18 +5,7 @@
         Reset
       </button>
     </div>
-    <div id="cardboard">
-      <div id="title">
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-      </div>
-      <div
-        v-for="{ id, word } in cards"
-        :key="`card-${id}`"
-      >
-        {{ word }}
-      </div>
-    </div>
+    <card-board :cards="cards" />
     <player-board
       v-for="player in players"
       :key="`player-board-${player.id}`"
@@ -29,6 +18,7 @@
 
 <script>
 import PlayerBoard from './PlayerBoard.vue';
+import CardBoard from './CardBoard.vue';
 import dictionary from './dictionary';
 
 const getWord = () => {
@@ -54,6 +44,7 @@ const range = (count) => Array.from({ length: count }).map((value, index) => ind
 export default {
   components: {
     PlayerBoard,
+    CardBoard,
   },
   data() {
     return {
