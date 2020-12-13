@@ -22,7 +22,7 @@ export default {
 
   .turn-counter {
     &.player {
-      background-color: $primary;
+      background-color: $success;
     }
 
     &.remaining {
