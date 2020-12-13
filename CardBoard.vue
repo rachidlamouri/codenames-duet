@@ -9,6 +9,7 @@
         v-for="card in getCards(rowId - 1)"
         :key="`card-${card.id}`"
         :card="card"
+        @toggleCardState="toggleCardState"
       />
     </div>
   </div>
@@ -31,6 +32,9 @@ export default {
     getCards(rowId) {
       const start = rowId * 5;
       return this.cards.slice(start, start + 5);
+    },
+    toggleCardState(payload) {
+      this.$emit('toggleCardState', payload);
     },
   },
 };

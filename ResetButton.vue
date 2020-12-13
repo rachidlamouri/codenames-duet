@@ -1,12 +1,28 @@
 <template>
-  <button @click="reset" />
+  <button
+    :class="classes"
+    @click="reset"
+  />
 </template>
 
 <script>
 export default {
+  props: {
+    activated: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        activated: this.activated,
+      };
+    },
+  },
   methods: {
     reset() {
-      window.location.reload();
+      this.$emit('reset');
     },
   },
 };
@@ -20,5 +36,9 @@ export default {
     height: $reset-button-size;
     background-color: $accent-light;
     border-radius: 25%;
+
+    &.activated {
+      background-color: $success;
+    }
   }
 </style>

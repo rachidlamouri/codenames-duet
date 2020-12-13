@@ -8,6 +8,7 @@
     <card-board
       id="card-board"
       :cards="cards"
+      @toggleCardState="toggleCardState"
     />
     <player-board
       v-for="player in players"
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import CardBoard from './CardBoard.vue';
 import PlayerBoard from './PlayerBoard.vue';
 import SideBoard from './SideBoard.vue';
@@ -62,15 +64,30 @@ export default {
   },
   computed: {
     turnsTaken() {
-      return this.players.reduce(
+      const successfulTurns = this.players.reduce(
         (turnsTaken, player) => turnsTaken + player.successfulTurnCount,
         0,
       );
+
+      const failedTurns = this.cards.reduce(
+        (turnsTaken, card) => {
+          const player0TurnsTaken = card.isBystander[0] ? 1 : 0;
+          const player1TurnsTaken = card.isBystander[1] ? 1 : 0;
+
+          return turnsTaken + player0TurnsTaken + player1TurnsTaken;
+        },
+        0,
+      );
+
+      return successfulTurns + failedTurns;
     },
   },
   methods: {
     updateSuccessfulTurnCount({ playerId, count }) {
       this.players[playerId].successfulTurnCount = count;
+    },
+    toggleCardState({ cardId, key, playerId }) {
+      Vue.set(this.cards[cardId][key], playerId, !this.cards[cardId][key][playerId]);
     },
   },
 };

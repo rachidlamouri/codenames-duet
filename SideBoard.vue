@@ -1,6 +1,10 @@
 <template>
   <div class="player-board">
-    <reset-button class="reset-button-top" />
+    <reset-button
+      class="reset-button-top"
+      :activated="resetState[0]"
+      @reset="reset(0)"
+    />
     <div class="turn-counters">
       <turn-counter
         v-for="index in remainingCount"
@@ -8,11 +12,16 @@
         :type="isInErrorState ? 'error' : 'remaining'"
       />
     </div>
-    <reset-button class="reset-button-bottom" />
+    <reset-button
+      class="reset-button-bottom"
+      :activated="resetState[1]"
+      @reset="reset(1)"
+    />
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
 import ResetButton from './ResetButton.vue';
 import TurnCounter from './TurnCounter.vue';
 
@@ -31,6 +40,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      resetState: [false, false],
+    };
+  },
   computed: {
     isInErrorState() {
       return this.turnsTaken > this.sideboard.maxTurns;
@@ -44,6 +58,15 @@ export default {
       return this.isInErrorState
         ? this.turnsTaken - this.sideboard.maxTurns
         : this.sideboard.maxTurns - this.turnsTaken;
+    },
+  },
+  methods: {
+    reset(playerId) {
+      Vue.set(this.resetState, playerId, !this.resetState[playerId]);
+
+      if (this.resetState.every((value) => value)) {
+        window.location.reload();
+      }
     },
   },
 };
