@@ -6,7 +6,8 @@
     />
     <turn-counter
       v-for="index in player.successfulTurnCount"
-      :key="`turn-counter-${player.id}${index}`"
+      :key="`player-turn-counter-${player.id}${index}`"
+      type="player"
       @click="removeSuccessCounter"
     />
   </div>
@@ -60,7 +61,7 @@ export default {
     }
 
     .add-counter {
-      border-radius: 100px;
+      border-radius: 100%;
     }
   }
 </style>

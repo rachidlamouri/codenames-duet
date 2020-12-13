@@ -1,10 +1,10 @@
 <template>
   <div id="root">
-    <div id="sideboard">
-      <button @click="reset">
-        Reset
-      </button>
-    </div>
+    <side-board
+      id="side-board"
+      :sideboard="sideboard"
+      :turns-taken="turnsTaken"
+    />
     <card-board :cards="cards" />
     <player-board
       v-for="player in players"
@@ -17,8 +17,9 @@
 </template>
 
 <script>
-import PlayerBoard from './PlayerBoard.vue';
 import CardBoard from './CardBoard.vue';
+import PlayerBoard from './PlayerBoard.vue';
+import SideBoard from './SideBoard.vue';
 import dictionary from './dictionary';
 
 const getWord = () => {
@@ -45,6 +46,7 @@ export default {
   components: {
     PlayerBoard,
     CardBoard,
+    SideBoard,
   },
   data() {
     return {
@@ -55,10 +57,15 @@ export default {
       },
     };
   },
-  methods: {
-    reset() {
-      window.location.reload();
+  computed: {
+    turnsTaken() {
+      return this.players.reduce(
+        (turnsTaken, player) => turnsTaken + player.successfulTurnCount,
+        0,
+      );
     },
+  },
+  methods: {
     updateSuccessfulTurnCount({ playerId, count }) {
       this.players[playerId].successfulTurnCount = count;
     },
@@ -71,6 +78,7 @@ export default {
 
   * {
     box-sizing: border-box;
+    background-color: transparent;
     color: $text;
     margin: 0px;
     padding: 0px;
@@ -87,7 +95,7 @@ export default {
     padding: $padding-lg;
   }
 
-  #sideboard {
+  #side-board {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -99,7 +107,7 @@ export default {
     grid-row-end: 2;
   }
 
-  #cardboard {
+  #card-board {
     grid-column-start: 2;
     grid-row-start: 2;
     grid-row-end: 3;
