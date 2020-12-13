@@ -28,5 +28,9 @@ export default {
     &.remaining {
       background-color: $accent-dark;
     }
+
+    &.error {
+      background-color: $error;
+    }
   }
 </style>

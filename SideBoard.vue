@@ -1,14 +1,11 @@
 <template>
   <div class="player-board">
     <reset-button class="reset-button-top" />
-    <div
-      class="turn-counters"
-      :class="classes"
-    >
+    <div class="turn-counters">
       <turn-counter
         v-for="index in remainingCount"
         :key="`remaining-turn-counter-${index}`"
-        type="remaining"
+        :type="isInErrorState ? 'error' : 'remaining'"
       />
     </div>
     <reset-button class="reset-button-bottom" />
@@ -44,7 +41,9 @@ export default {
       };
     },
     remainingCount() {
-      return this.isInErrorState ? 0 : this.sideboard.maxTurns - this.turnsTaken;
+      return this.isInErrorState
+        ? this.turnsTaken - this.sideboard.maxTurns
+        : this.sideboard.maxTurns - this.turnsTaken;
     },
   },
 };
@@ -71,10 +70,6 @@ export default {
       justify-content: center;
       grid-row-start: 2;
       grid-row-end: 3;
-
-      &.error {
-        background-color: $error;
-      }
 
       .turn-counter {
         margin-bottom: $padding-sm;
