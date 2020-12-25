@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 
 export default {
   props: {
@@ -83,25 +84,26 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(['toggleCardState']),
     toggleButtons() {
       this.showButtons = !this.showButtons;
     },
     toggleAssassin(playerId) {
-      this.$emit('toggleCardState', {
+      this.toggleCardState({
         cardId: this.card.id,
         playerId,
         key: 'isAssassin',
       });
     },
     toggleAgent(playerId) {
-      this.$emit('toggleCardState', {
+      this.toggleCardState({
         cardId: this.card.id,
         playerId,
         key: 'isAgent',
       });
     },
     toggleInnocentBystander(playerId) {
-      this.$emit('toggleCardState', {
+      this.toggleCardState({
         cardId: this.card.id,
         playerId,
         key: 'isBystander',
