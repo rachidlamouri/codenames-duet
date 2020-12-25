@@ -1,11 +1,14 @@
-import { shallowMount } from '@vue/test-utils';
 import ResetButton from '../../src/components/ResetButton.vue';
+
+const { shallowMount } = getMountUtils({
+  component: ResetButton,
+});
 
 describe('components/ResetButton', () => {
   describe('when not activated', () => {
     test('renders as inactive', () => {
-      const wrapper = shallowMount(ResetButton, {
-        propsData: {
+      const wrapper = shallowMount({
+        props: {
           activated: false,
         },
       });
@@ -15,8 +18,8 @@ describe('components/ResetButton', () => {
 
   describe('when activated', () => {
     test('renders as activated', () => {
-      const wrapper = shallowMount(ResetButton, {
-        propsData: {
+      const wrapper = shallowMount({
+        props: {
           activated: true,
         },
       });

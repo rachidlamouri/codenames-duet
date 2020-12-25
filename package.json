@@ -16,6 +16,9 @@
       "json",
       "vue"
     ],
+    "setupFiles": [
+      "<rootDir>/tests/setup.js"
+    ],
     "snapshotSerializers": [
       "jest-serializer-vue"
     ],
