@@ -3,4 +3,7 @@ module.exports = {
   env: {
     jest: true,
   },
+  globals: {
+    getMountUtils: 'readonly',
+  },
 };
