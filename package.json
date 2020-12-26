@@ -2,7 +2,7 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint --ext js,vue .",
-    "start": "webpack-dev-server"
+    "start": "node src/server"
   },
   "husky": {
     "hooks": {
@@ -26,6 +26,10 @@
     "vuex": "^3.6.0",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.9",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-middleware": "^3.7.3",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
