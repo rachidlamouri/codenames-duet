@@ -9,32 +9,26 @@
         v-for="card in getCards(rowId - 1)"
         :key="`card-${card.id}`"
         :card="card"
-        @toggleCardState="toggleCardState"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Card from './Card.vue';
 
 export default {
   components: {
     Card,
   },
-  props: {
-    cards: {
-      type: Array,
-      required: true,
-    },
+  computed: {
+    ...mapState(['cards']),
   },
   methods: {
     getCards(rowId) {
       const start = rowId * 5;
       return this.cards.slice(start, start + 5);
-    },
-    toggleCardState(payload) {
-      this.$emit('toggleCardState', payload);
     },
   },
 };

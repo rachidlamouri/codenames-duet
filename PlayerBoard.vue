@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import TurnCounter from './TurnCounter.vue';
 
 export default {
@@ -21,20 +22,29 @@ export default {
     TurnCounter,
   },
   props: {
-    player: {
-      type: Object,
+    playerId: {
+      type: Number,
       required: true,
     },
   },
+  computed: {
+    ...mapState(['players']),
+    player() {
+      return this.players[this.playerId];
+    },
+  },
   methods: {
+    ...mapMutations([
+      'updateSuccessfulTurnCount',
+    ]),
     addSuccessCounter() {
-      this.$emit('updateSuccessfulTurnCount', {
+      this.updateSuccessfulTurnCount({
         playerId: this.player.id,
         count: this.player.successfulTurnCount + 1,
       });
     },
     removeSuccessCounter() {
-      this.$emit('updateSuccessfulTurnCount', {
+      this.updateSuccessfulTurnCount({
         playerId: this.player.id,
         count: this.player.successfulTurnCount - 1,
       });

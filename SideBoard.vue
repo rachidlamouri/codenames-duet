@@ -22,6 +22,7 @@
 
 <script>
 import Vue from 'vue';
+import { mapGetters, mapState } from 'vuex';
 import ResetButton from './ResetButton.vue';
 import TurnCounter from './TurnCounter.vue';
 
@@ -30,22 +31,14 @@ export default {
     ResetButton,
     TurnCounter,
   },
-  props: {
-    sideboard: {
-      type: Object,
-      required: true,
-    },
-    turnsTaken: {
-      type: Number,
-      required: true,
-    },
-  },
   data() {
     return {
       resetState: [false, false],
     };
   },
   computed: {
+    ...mapState(['sideboard']),
+    ...mapGetters(['turnsTaken']),
     isInErrorState() {
       return this.turnsTaken > this.sideboard.maxTurns;
     },

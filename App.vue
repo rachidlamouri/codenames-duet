@@ -1,94 +1,28 @@
 <template>
   <div id="root">
-    <side-board
-      id="side-board"
-      :sideboard="sideboard"
-      :turns-taken="turnsTaken"
-    />
-    <card-board
-      id="card-board"
-      :cards="cards"
-      @toggleCardState="toggleCardState"
+    <side-board id="side-board" />
+    <card-board id="card-board" />
+    <player-board
+      class="player-board-0"
+      :player-id="0"
     />
     <player-board
-      v-for="player in players"
-      :key="`player-board-${player.id}`"
-      :class="`player-board-${player.id}`"
-      :player="player"
-      @updateSuccessfulTurnCount="updateSuccessfulTurnCount"
+      class="player-board-1"
+      :player-id="1"
     />
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
 import CardBoard from './CardBoard.vue';
 import PlayerBoard from './PlayerBoard.vue';
 import SideBoard from './SideBoard.vue';
-import dictionary from './dictionary';
-
-const getWord = () => {
-  const wordIndex = Math.floor(Math.random() * dictionary.length);
-  return dictionary[wordIndex];
-};
-
-const makeCardState = (id) => ({
-  id,
-  word: getWord().toUpperCase(),
-  isAssassin: [false, false],
-  isAgent: [false, false],
-  isBystander: [false, false],
-});
-
-const makePlayerState = (id) => ({
-  id,
-  successfulTurnCount: 0,
-});
-
-const range = (count) => Array.from({ length: count }).map((value, index) => index);
 
 export default {
   components: {
     PlayerBoard,
     CardBoard,
     SideBoard,
-  },
-  data() {
-    return {
-      cards: range(25).map((index) => makeCardState(index)),
-      players: range(2).map((index) => makePlayerState(index)),
-      sideboard: {
-        maxTurns: 9,
-      },
-    };
-  },
-  computed: {
-    turnsTaken() {
-      const successfulTurns = this.players.reduce(
-        (turnsTaken, player) => turnsTaken + player.successfulTurnCount,
-        0,
-      );
-
-      const failedTurns = this.cards.reduce(
-        (turnsTaken, card) => {
-          const player0TurnsTaken = card.isBystander[0] ? 1 : 0;
-          const player1TurnsTaken = card.isBystander[1] ? 1 : 0;
-
-          return turnsTaken + player0TurnsTaken + player1TurnsTaken;
-        },
-        0,
-      );
-
-      return successfulTurns + failedTurns;
-    },
-  },
-  methods: {
-    updateSuccessfulTurnCount({ playerId, count }) {
-      this.players[playerId].successfulTurnCount = count;
-    },
-    toggleCardState({ cardId, key, playerId }) {
-      Vue.set(this.cards[cardId][key], playerId, !this.cards[cardId][key][playerId]);
-    },
   },
 };
 </script>
