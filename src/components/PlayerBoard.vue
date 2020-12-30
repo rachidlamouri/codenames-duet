@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'variables.scss';
+  @use 'styles/colors';
 
   .player-board {
     display: flex;
@@ -71,7 +71,7 @@ export default {
     }
 
     .add-counter {
-      background-color: $accent-light;
+      background-color: colors.$accent-light;
       border-radius: 100%;
     }
   }

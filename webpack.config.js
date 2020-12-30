@@ -31,6 +31,9 @@ module.exports = {
     new VueLoaderPlugin(),
   ],
   resolve: {
+    alias: {
+      styles: path.resolve(__dirname, 'src/styles/'),
+    },
     extensions: [
       '.js',
       '.vue',

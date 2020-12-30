@@ -18,19 +18,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import './variables';
+  @use 'styles/colors';
 
   .turn-counter {
     &.player {
-      background-color: $success;
+      background-color: colors.$success;
     }
 
     &.remaining {
-      background-color: $accent-dark;
+      background-color: colors.$accent-dark;
     }
 
     &.error {
-      background-color: $error;
+      background-color: colors.$error;
     }
   }
 </style>
