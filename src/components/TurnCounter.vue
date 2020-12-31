@@ -25,7 +25,7 @@ export default {
       background-color: colors.$success;
     }
 
-    &.remaining {
+    &.normal {
       background-color: colors.$accent-dark;
     }
 

@@ -1,20 +1,31 @@
-const { mount, shallowMount } = require('@vue/test-utils');
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+import { genStore } from './generators';
 
 global.getMountUtils = ({
   component,
-} = {}) => ({
-  mount: ({ props, ...options } = {}) => mount(
-    component,
-    {
-      ...options,
-      propsData: props,
-    },
-  ),
-  shallowMount: ({ props, ...options } = {}) => shallowMount(
-    component,
-    {
-      ...options,
-      propsData: props,
-    },
-  ),
-});
+} = {}) => {
+  const localVue = createLocalVue();
+  localVue.use(Vuex);
+
+  return {
+    mount: ({ props, store, ...options } = {}) => mount(
+      component,
+      {
+        ...options,
+        propsData: props,
+        localVue,
+        store: genStore(store),
+      },
+    ),
+    shallowMount: ({ props, store, ...options } = {}) => shallowMount(
+      component,
+      {
+        ...options,
+        propsData: props,
+        localVue,
+        store: genStore(store),
+      },
+    ),
+  };
+};
