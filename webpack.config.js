@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     filename: '[name].bundle.js',
   },
@@ -26,11 +26,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html'),
+      template: path.resolve(__dirname, './src/index.html'),
     }),
     new VueLoaderPlugin(),
   ],
   resolve: {
+    alias: {
+      styles: path.resolve(__dirname, 'src/styles/'),
+    },
     extensions: [
       '.js',
       '.vue',

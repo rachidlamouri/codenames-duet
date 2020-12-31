@@ -35,14 +35,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import './variables';
+@use 'styles/constants';
 
 #card-board {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  padding: $card-margin;
+  padding: constants.$card-margin;
 
   .row {
     display: flex;

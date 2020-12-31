@@ -28,12 +28,14 @@ export default {
 </script>
 
 <style lang="scss">
-  @import './variables';
+  @use 'styles/colors';
+  @use 'styles/padding';
+  @use 'styles/constants';
 
   * {
     box-sizing: border-box;
     background-color: transparent;
-    color: $text;
+    color: colors.$text;
     margin: 0px;
     padding: 0px;
     border: none;
@@ -48,7 +50,7 @@ export default {
     grid-template-rows: $edge-board-size auto $edge-board-size;
     width: 100%;
     height: 100%;
-    padding: $padding-lg;
+    padding: padding.$lg;
   }
 
   #side-board {
@@ -75,11 +77,11 @@ export default {
   }
 
   .counter-like {
-    width: $counter-size;
-    height: $counter-size;
-    border: 1px solid $borders;
+    width: constants.$counter-size;
+    height: constants.$counter-size;
+    border: 1px solid colors.$borders;
     border-radius: 10px;
-    margin-left: $padding-sm;
+    margin-left: padding.$sm;
   }
 
   #title {

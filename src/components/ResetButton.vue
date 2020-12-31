@@ -29,16 +29,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import './variables';
+  @use 'styles/colors';
+  @use 'styles/constants';
 
   button {
-    width: $reset-button-size;
-    height: $reset-button-size;
-    background-color: $accent-light;
+    width: constants.$reset-button-size;
+    height: constants.$reset-button-size;
+    background-color: colors.$accent-light;
     border-radius: 25%;
 
     &.activated {
-      background-color: $success;
+      background-color: colors.$success;
     }
   }
 </style>

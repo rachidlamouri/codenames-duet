@@ -114,20 +114,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import './variables';
+@use 'styles/colors';
+@use 'styles/constants';
+@use 'styles/padding';
 
 .card {
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: $card-margin;
-  border: 1px solid $borders;
+  margin: constants.$card-margin;
+  border: 1px solid colors.$borders;
   border-radius: 5px;
   font-size: 25px;
-  background-color: $accent-light;
+  background-color: colors.$accent-light;
 
   .word {
-    padding: $padding-lg;
+    padding: padding.$lg;
     flex-shrink: 0;
 
     &.bottom {
@@ -136,18 +138,18 @@ export default {
     }
 
     &.agent {
-      color: $accent-light;
-      background-color: $success;
+      color: colors.$accent-light;
+      background-color: colors.$success;
     }
 
     &.assassin {
-      color: $accent-light;
-      background-color: $assassin;
+      color: colors.$accent-light;
+      background-color: colors.$assassin;
     }
 
     &.innocent-bystander {
-      color: $accent-light;
-      background-color: $accent-dark;
+      color: colors.$accent-light;
+      background-color: colors.$accent-dark;
     }
   }
 
@@ -160,34 +162,34 @@ export default {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: $padding-md;
+    padding: padding.$md;
 
     .row {
       display: flex;
       flex-shrink: 0px;
 
       &.top {
-        margin-bottom: $padding-lg;
+        margin-bottom: padding.$lg;
       }
 
       $size: 40px;
       button {
         width: $size;
         height: $size;
-        margin-right: $padding-md;
+        margin-right: padding.$md;
         border-radius: 20%;
         border: 1px solid white;
 
         &.agent {
-          background-color: $success;
+          background-color: colors.$success;
         }
 
         &.innocent-bystander {
-          background-color: $accent-dark;
+          background-color: colors.$accent-dark;
         }
 
         &.assassin {
-          background-color: $assassin;
+          background-color: colors.$assassin;
         }
       }
     }

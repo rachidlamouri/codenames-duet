@@ -66,12 +66,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'variables.scss';
+  @use 'styles/padding';
+  @use 'styles/constants';
 
   #side-board {
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: $reset-button-size auto $reset-button-size;
+    grid-template-rows: constants.$reset-button-size auto constants.$reset-button-size;
 
     .reset-button-top {
       grid-row-start: 1;
@@ -88,7 +89,7 @@ export default {
       grid-row-end: 3;
 
       .turn-counter {
-        margin-bottom: $padding-sm;
+        margin-bottom: padding.$sm;
       }
     }
 
