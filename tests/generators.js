@@ -8,19 +8,25 @@ const genFlatStore = schemaToGenerator(flatStore);
 
 export const genStore = ({
   reload = noop,
+  updateSuccessfulTurnCount = noop,
   ...override
 } = {}) => {
   const {
+    players,
     sideboard,
     turnsTaken,
   } = genFlatStore(override);
 
   return new Vuex.Store({
     state: {
+      players,
       sideboard,
     },
     getters: {
       turnsTaken: () => turnsTaken,
+    },
+    mutations: {
+      updateSuccessfulTurnCount,
     },
     actions: {
       reload,
