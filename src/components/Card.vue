@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   props: {
-    card: {
-      type: Object,
+    cardId: {
+      type: Number,
       required: true,
     },
   },
@@ -68,6 +68,10 @@ export default {
     };
   },
   computed: {
+    ...mapState(['cards']),
+    card() {
+      return this.cards[this.cardId];
+    },
     topWordClasses() {
       return {
         agent: this.card.isAgent[0],
