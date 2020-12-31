@@ -5,6 +5,7 @@ module.exports = {
   },
   globals: {
     getMountUtils: 'readonly',
+    test: 'off', // disabling in favor of 'it'
   },
   settings: {
     'import/resolver': {
