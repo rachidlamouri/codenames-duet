@@ -2,7 +2,8 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint --ext js,vue .",
-    "start": "node src/server"
+    "start": "node src/server",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
