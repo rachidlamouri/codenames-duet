@@ -6,4 +6,11 @@ module.exports = {
   globals: {
     getMountUtils: 'readonly',
   },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: 'webpack.config.js',
+      },
+    },
+  },
 };

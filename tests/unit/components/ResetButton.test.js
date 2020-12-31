@@ -1,4 +1,4 @@
-import ResetButton from '../../../src/components/ResetButton.vue';
+import ResetButton from 'components/ResetButton.vue';
 
 const { shallowMount } = getMountUtils({
   component: ResetButton,
