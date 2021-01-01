@@ -2,6 +2,7 @@
   <div id="root">
     <side-board id="side-board" />
     <card-board id="card-board" />
+    <admin-board id="admin-board" />
     <player-board
       class="player-board-0"
       :player-id="0"
@@ -17,12 +18,14 @@
 import CardBoard from './CardBoard.vue';
 import PlayerBoard from './PlayerBoard.vue';
 import SideBoard from './SideBoard.vue';
+import AdminBoard from './AdminBoard.vue';
 
 export default {
   components: {
     PlayerBoard,
     CardBoard,
     SideBoard,
+    AdminBoard,
   },
 };
 </script>
@@ -44,36 +47,37 @@ export default {
   }
 
   $edge-board-size: 100px;
+  $admin-board-size: constants.$reset-button-size;
   #root {
     display: grid;
-    grid-template-columns: $edge-board-size auto;
-    grid-template-rows: $edge-board-size auto $edge-board-size;
+    grid-template:
+      "side player-0 admin" $edge-board-size
+      "side card     admin" auto
+      "side player-1 admin" $edge-board-size;
+    grid-template-columns: $edge-board-size auto $admin-board-size;
     width: 100%;
     height: 100%;
     padding: padding.$lg;
   }
 
   #side-board {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    grid-area: side;
+  }
+
+  #admin-board {
+    grid-area: admin;
   }
 
   .player-board-0 {
-    grid-column-start: 2;
-    grid-row-end: 2;
-  }
-
-  #card-board {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-area: player-0;
   }
 
   .player-board-1 {
-    grid-column-start: 2;
-    grid-row-start: 3;
+    grid-area: player-1;
+  }
+
+  #card-board {
+    grid-area: card;
   }
 
   .counter-like {
