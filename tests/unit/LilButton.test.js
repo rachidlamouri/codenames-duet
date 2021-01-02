@@ -26,4 +26,28 @@ describe('components/LilButton', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
+
+  describe('when green', () => {
+    test('renders as green', () => {
+      const wrapper = shallowMount({
+        props: {
+          type: 'green',
+          activated: false,
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('when grey', () => {
+    test('renders as grey', () => {
+      const wrapper = shallowMount({
+        props: {
+          type: 'grey',
+          activated: false,
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
 });

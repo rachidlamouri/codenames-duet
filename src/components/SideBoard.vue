@@ -1,7 +1,8 @@
 <template>
-  <div class="player-board">
+  <div>
     <lil-button
       class="lil-button-top"
+      :type="'green'"
       :activated="resetState[0]"
       @click="reset(0)"
     />
@@ -14,6 +15,7 @@
     </div>
     <lil-button
       class="lil-button-bottom"
+      :type="'green'"
       :activated="resetState[1]"
       @click="reset(1)"
     />
@@ -97,10 +99,6 @@ export default {
     .lil-button-bottom {
       grid-row-start: 3;
       grid-row-end: 4;
-    }
-
-    .lil-button.activated {
-      background-color: colors.$success;
     }
   }
 </style>

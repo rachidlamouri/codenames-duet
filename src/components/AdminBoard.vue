@@ -48,9 +48,5 @@ export default {
     .admin-button-bottom {
       grid-area: bottom;
     }
-
-    .lil-button.activated {
-      background-color: colors.$accent-dark;
-    }
   }
 </style>
