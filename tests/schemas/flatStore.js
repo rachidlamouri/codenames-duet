@@ -1,11 +1,7 @@
-import { utils } from '../../src/utils';
-import { REALISTIC_POSITIVE_INTEGER, strictObject, strictTuple } from './utils';
-import { buildPlayerSchema } from './player';
-import { sideboard } from './sideboard';
+import { REALISTIC_POSITIVE_INTEGER, strictObject } from './utils';
+import { storeState } from './storeState';
 
 export const flatStore = strictObject({
-  cards: true, // TODO: define schema
-  players: strictTuple(utils.range(2).map((index) => buildPlayerSchema(index))),
-  sideboard,
+  ...storeState.properties,
   turnsTaken: REALISTIC_POSITIVE_INTEGER,
 });

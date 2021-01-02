@@ -1,6 +1,9 @@
+import { matchers } from 'jest-json-schema';
 import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import { genStore } from './generators';
+
+expect.extend(matchers);
 
 global.getMountUtils = ({
   component,
