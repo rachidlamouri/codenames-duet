@@ -3,7 +3,7 @@
     <side-board id="side-board" />
     <card-board id="card-board" />
     <admin-board
-      v-if="false"
+      v-if="flags.adminBoard"
       id="admin-board"
     />
     <player-board
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import CardBoard from './CardBoard.vue';
 import PlayerBoard from './PlayerBoard.vue';
 import SideBoard from './SideBoard.vue';
@@ -29,6 +30,9 @@ export default {
     CardBoard,
     SideBoard,
     AdminBoard,
+  },
+  computed: {
+    ...mapState(['flags']),
   },
 };
 </script>
