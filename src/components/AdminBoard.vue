@@ -9,7 +9,7 @@
       v-if="adminMode"
       class="admin-text"
     >
-      WELCOME TO ADMIN MODE!
+      ¡ADMIN MODE!
     </div>
     <lil-button
       class="admin-button-bottom"
@@ -42,6 +42,7 @@ export default {
 
   #admin-board {
     display: grid;
+    justify-items: center;
     grid:
     "top" constants.$lil-button-size
     "text" auto
@@ -60,8 +61,8 @@ export default {
       text-align: center;
       writing-mode: vertical-rl;
       text-orientation: sideways-right;
-      color: colors.$error;
-      font-size: constants.$lil-button-size;
+      color: colors.$accent-light;
+      font-size: constants.$admin-board-width;
     }
   }
 </style>
