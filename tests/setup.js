@@ -1,7 +1,7 @@
 import { matchers } from 'jest-json-schema';
 import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
-import { genStore } from './generators';
+import { genMockStore } from './generators';
 
 expect.extend(matchers);
 
@@ -22,7 +22,7 @@ global.getMountUtils = ({
           ...props,
         },
         localVue,
-        store: genStore(store),
+        store: genMockStore(store),
       },
     ),
     shallowMount: ({ props = {}, store, ...options } = {}) => shallowMount(
@@ -34,7 +34,7 @@ global.getMountUtils = ({
           ...props,
         },
         localVue,
-        store: genStore(store),
+        store: genMockStore(store),
       },
     ),
   };
