@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import LilButton from './LilButton.vue';
 
 export default {
@@ -28,7 +27,7 @@ export default {
   },
   methods: {
     adminMode(playerId) {
-      Vue.set(this.adminModeState, playerId, !this.adminModeState[playerId]);
+      this.$set(this.adminModeState, playerId, !this.adminModeState[playerId]);
 
       if (this.adminModeState.every((value) => value)) {
         console.log('Entering admin mode');
