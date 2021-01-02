@@ -2,7 +2,10 @@
   <div id="root">
     <side-board id="side-board" />
     <card-board id="card-board" />
-    <admin-board id="admin-board" />
+    <admin-board
+      v-if="false"
+      id="admin-board"
+    />
     <player-board
       class="player-board-0"
       :player-id="0"
