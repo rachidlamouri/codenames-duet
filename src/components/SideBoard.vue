@@ -3,7 +3,7 @@
     <lil-button
       class="lil-button-top"
       :activated="resetState[0]"
-      @reset="reset(0)"
+      @click="reset(0)"
     />
     <div class="turn-counters">
       <turn-counter
@@ -15,7 +15,7 @@
     <lil-button
       class="lil-button-bottom"
       :activated="resetState[1]"
-      @reset="reset(1)"
+      @click="reset(1)"
     />
   </div>
 </template>

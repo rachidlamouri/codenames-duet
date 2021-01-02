@@ -1,7 +1,7 @@
 <template>
   <button
     :class="classes"
-    @click="reset"
+    @click="click"
   />
 </template>
 
@@ -21,8 +21,8 @@ export default {
     },
   },
   methods: {
-    reset() {
-      this.$emit('reset');
+    click() {
+      this.$emit('click');
     },
   },
 };

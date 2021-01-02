@@ -3,12 +3,12 @@
     <lil-button
       class="admin-button-top"
       :activated="adminModeState[0]"
-      @reset="adminMode(0)"
+      @click="adminMode(0)"
     />
     <lil-button
       class="admin-button-bottom"
       :activated="adminModeState[1]"
-      @reset="adminMode(1)"
+      @click="adminMode(1)"
     />
   </div>
 </template>
