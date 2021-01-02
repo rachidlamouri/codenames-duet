@@ -50,14 +50,14 @@ export default {
   }
 
   $edge-board-size: 100px;
-  $admin-board-size: constants.$lil-button-size;
+  $admin-board-width: constants.$lil-button-size;
   #root {
     display: grid;
     grid-template:
       "side player-0 admin" $edge-board-size
       "side card     admin" auto
       "side player-1 admin" $edge-board-size;
-    grid-template-columns: $edge-board-size auto $admin-board-size;
+    grid-template-columns: $edge-board-size auto $admin-board-width;
     width: 100%;
     height: 100%;
     padding: padding.$lg;
