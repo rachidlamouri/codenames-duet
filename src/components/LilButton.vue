@@ -1,5 +1,6 @@
 <template>
   <button
+    class="lil-button"
     :class="classes"
     @click="$emit('click')"
   />
@@ -32,9 +33,5 @@ export default {
     height: constants.$lil-button-size;
     background-color: colors.$accent-light;
     border-radius: 25%;
-
-    &.activated {
-      background-color: colors.$success;
-    }
   }
 </style>

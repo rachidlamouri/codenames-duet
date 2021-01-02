@@ -56,7 +56,7 @@ export default {
       grid-area: bottom;
     }
 
-    button.activated {
+    .lil-button.activated {
       background-color: colors.$accent-dark;
     }
   }

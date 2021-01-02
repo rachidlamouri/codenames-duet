@@ -68,6 +68,7 @@ export default {
 <style lang="scss" scoped>
   @use 'styles/padding';
   @use 'styles/constants';
+  @use 'styles/colors';
 
   #side-board {
     display: grid;
@@ -96,6 +97,10 @@ export default {
     .lil-button-bottom {
       grid-row-start: 3;
       grid-row-end: 4;
+    }
+
+    .lil-button.activated {
+      background-color: colors.$success;
     }
   }
 </style>
