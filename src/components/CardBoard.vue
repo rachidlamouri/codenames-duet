@@ -42,6 +42,7 @@ export default {
   .row {
     display: flex;
     flex: 1;
+    flex-shrink: 0;
   }
 }
 </style>

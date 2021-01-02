@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import { schemasToGenerators } from '@randograms/schema-to-generator';
+import { utils } from 'src/utils';
 import * as schemas from './schemas';
 
 const upperFirst = (string) => {
@@ -8,6 +9,7 @@ const upperFirst = (string) => {
 };
 
 export const {
+  genCard,
   genFlatStore,
   genStoreState,
 } = Object.entries(schemasToGenerators(schemas))
@@ -20,28 +22,24 @@ export const {
     {},
   );
 
-const noop = () => undefined;
-
 export const genMockStore = ({
-  reload = noop,
-  updateSuccessfulTurnCount = noop,
+  reload = utils.noop,
+  updateCardStatus = utils.noop,
+  updateSuccessfulTurnCount = utils.noop,
   ...override
 } = {}) => {
   const {
-    players,
-    sideboard,
     turnsTaken,
+    ...state
   } = genFlatStore(override);
 
   return new Vuex.Store({
-    state: {
-      players,
-      sideboard,
-    },
+    state,
     getters: {
       turnsTaken: () => turnsTaken,
     },
     mutations: {
+      updateCardStatus,
       updateSuccessfulTurnCount,
     },
     actions: {
