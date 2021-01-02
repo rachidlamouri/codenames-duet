@@ -9,4 +9,7 @@ export const mutations = {
   toggleCardState(state, { cardId, key, playerId }) {
     Vue.set(state.cards[cardId][key], playerId, !state.cards[cardId][key][playerId]);
   },
+  toggleAdminMode(state) {
+    state.adminMode = !state.adminMode;
+  },
 };

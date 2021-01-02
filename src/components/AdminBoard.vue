@@ -2,37 +2,30 @@
   <div class="admin-board">
     <lil-button
       class="admin-button-top"
-      :activated="adminModeState[0]"
-      @click="adminMode(0)"
+      :activated="adminMode"
+      @click="toggleAdminMode()"
     />
     <lil-button
       class="admin-button-bottom"
-      :activated="adminModeState[1]"
-      @click="adminMode(1)"
+      :activated="adminMode"
+      @click="toggleAdminMode()"
     />
   </div>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 import LilButton from './LilButton.vue';
 
 export default {
   components: {
     LilButton,
   },
-  data() {
-    return {
-      adminModeState: [false, false],
-    };
+  computed: {
+    ...mapState(['adminMode']),
   },
   methods: {
-    adminMode(playerId) {
-      this.$set(this.adminModeState, playerId, !this.adminModeState[playerId]);
-
-      if (this.adminModeState.every((value) => value)) {
-        console.log('Entering admin mode');
-      }
-    },
+    ...mapMutations(['toggleAdminMode']),
   },
 };
 </script>

@@ -26,4 +26,5 @@ export const getInitialState = () => ({
   sideboard: {
     maxTurns: 9,
   },
+  adminMode: false,
 });
