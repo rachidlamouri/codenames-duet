@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/ResetButton when activated renders as activated 1`] = `
+exports[`components/LilButton when activated renders as activated 1`] = `
 <button
   class="activated"
 />
 `;
 
-exports[`components/ResetButton when not activated renders as inactive 1`] = `
+exports[`components/LilButton when not activated renders as inactive 1`] = `
 <button
   class=""
 />

@@ -50,7 +50,7 @@ export default {
   }
 
   $edge-board-size: 100px;
-  $admin-board-size: constants.$reset-button-size;
+  $admin-board-size: constants.$lil-button-size;
   #root {
     display: grid;
     grid-template:

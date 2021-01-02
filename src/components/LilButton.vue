@@ -33,13 +33,13 @@ export default {
   @use 'styles/constants';
 
   button {
-    width: constants.$reset-button-size;
-    height: constants.$reset-button-size;
+    width: constants.$lil-button-size;
+    height: constants.$lil-button-size;
     background-color: colors.$accent-light;
     border-radius: 25%;
 
     &.activated {
-      background-color: colors.$accent-dark;
+      background-color: colors.$success;
     }
   }
 </style>

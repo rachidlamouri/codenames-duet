@@ -1,10 +1,10 @@
-import ResetButton from '../../src/components/ResetButton.vue';
+import LilButton from '../../src/components/LilButton.vue';
 
 const { shallowMount } = getMountUtils({
-  component: ResetButton,
+  component: LilButton,
 });
 
-describe('components/ResetButton', () => {
+describe('components/LilButton', () => {
   describe('when not activated', () => {
     test('renders as inactive', () => {
       const wrapper = shallowMount({

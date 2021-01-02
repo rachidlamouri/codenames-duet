@@ -1,7 +1,7 @@
 <template>
   <div class="player-board">
-    <reset-button
-      class="reset-button-top"
+    <lil-button
+      class="lil-button-top"
       :activated="resetState[0]"
       @reset="reset(0)"
     />
@@ -12,8 +12,8 @@
         :type="isInErrorState ? 'error' : 'remaining'"
       />
     </div>
-    <reset-button
-      class="reset-button-bottom"
+    <lil-button
+      class="lil-button-bottom"
       :activated="resetState[1]"
       @reset="reset(1)"
     />
@@ -23,12 +23,12 @@
 <script>
 import Vue from 'vue';
 import { mapGetters, mapState } from 'vuex';
-import ResetButton from './ResetButton.vue';
+import LilButton from './LilButton.vue';
 import TurnCounter from './TurnCounter.vue';
 
 export default {
   components: {
-    ResetButton,
+    LilButton,
     TurnCounter,
   },
   data() {
@@ -72,9 +72,9 @@ export default {
   #side-board {
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: constants.$reset-button-size auto constants.$reset-button-size;
+    grid-template-rows: constants.$lil-button-size auto constants.$lil-button-size;
 
-    .reset-button-top {
+    .lil-button-top {
       grid-row-start: 1;
       grid-row-end: 2;
     }
@@ -93,7 +93,7 @@ export default {
       }
     }
 
-    .reset-button-bottom {
+    .lil-button-bottom {
       grid-row-start: 3;
       grid-row-end: 4;
     }

@@ -1,11 +1,11 @@
 <template>
   <div class="admin-board">
-    <reset-button
+    <lil-button
       class="admin-button-top"
       :activated="adminModeState[0]"
       @reset="adminMode(0)"
     />
-    <reset-button
+    <lil-button
       class="admin-button-bottom"
       :activated="adminModeState[1]"
       @reset="adminMode(1)"
@@ -15,11 +15,11 @@
 
 <script>
 import Vue from 'vue';
-import ResetButton from './ResetButton.vue';
+import LilButton from './LilButton.vue';
 
 export default {
   components: {
-    ResetButton,
+    LilButton,
   },
   data() {
     return {
@@ -45,9 +45,9 @@ export default {
   #admin-board {
     display: grid;
     grid:
-    "top" constants.$reset-button-size
+    "top" constants.$lil-button-size
     "." auto
-    "bottom" constants.$reset-button-size;
+    "bottom" constants.$lil-button-size;
 
     .admin-button-top {
       grid-area: top;
