@@ -6,7 +6,11 @@ export const mutations = {
   updateSuccessfulTurnCount(state, { playerId, count }) {
     state.players[playerId].successfulTurnCount = count;
   },
-  toggleCardState(state, { cardId, key, playerId }) {
-    Vue.set(state.cards[cardId][key], playerId, !state.cards[cardId][key][playerId]);
+  updateCardStatus(state, { cardId, playerId, status }) {
+    if (![null, 'agent', 'assassin', 'bystander'].includes(status)) {
+      throw Error(`Invalid status "${status}"`);
+    }
+
+    Vue.set(state.cards[cardId].status, playerId, status);
   },
 };

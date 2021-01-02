@@ -9,9 +9,7 @@ const getWord = () => {
 const makeCardState = (id) => ({
   id,
   word: getWord().toUpperCase(),
-  isAssassin: [false, false],
-  isAgent: [false, false],
-  isBystander: [false, false],
+  status: [null, null],
 });
 
 const makePlayerState = (id) => ({
