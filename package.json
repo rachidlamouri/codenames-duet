@@ -18,6 +18,7 @@
     ],
     "moduleNameMapper": {
       "^components/(.*)$": "<rootDir>/src/components/$1",
+      "^generators$": "<rootDir>/tests/generators.js",
       "^schemas$": "<rootDir>/tests/schemas/",
       "^store/(.*)$": "<rootDir>/src/store/$1"
     },
