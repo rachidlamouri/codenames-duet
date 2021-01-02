@@ -27,7 +27,7 @@ export const getInitialState = () => ({
     maxTurns: 9,
   },
   flags: {
-    adminBoard: true,
+    adminBoard: false,
   },
   adminMode: false,
 });
