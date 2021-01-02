@@ -45,7 +45,7 @@ export default {
       }
 
       &.grey {
-        background-color: colors.$accent-dark;
+        background-color: colors.$text;
       }
     }
   }

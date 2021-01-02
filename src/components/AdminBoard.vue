@@ -5,6 +5,12 @@
       :activated="adminMode"
       @click="toggleAdminMode()"
     />
+    <div
+      v-if="adminMode"
+      class="admin-text"
+    >
+      WELCOME TO ADMIN MODE!
+    </div>
     <lil-button
       class="admin-button-bottom"
       :activated="adminMode"
@@ -38,7 +44,7 @@ export default {
     display: grid;
     grid:
     "top" constants.$lil-button-size
-    "." auto
+    "text" auto
     "bottom" constants.$lil-button-size;
 
     .admin-button-top {
@@ -47,6 +53,15 @@ export default {
 
     .admin-button-bottom {
       grid-area: bottom;
+    }
+
+    .admin-text {
+      grid-area: text;
+      text-align: center;
+      writing-mode: vertical-rl;
+      text-orientation: sideways-right;
+      color: colors.$error;
+      font-size: constants.$lil-button-size;
     }
   }
 </style>
