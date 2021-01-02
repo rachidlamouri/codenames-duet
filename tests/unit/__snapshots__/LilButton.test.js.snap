@@ -2,12 +2,12 @@
 
 exports[`components/LilButton when activated renders as activated 1`] = `
 <button
-  class="activated"
+  class="lil-button activated"
 />
 `;
 
 exports[`components/LilButton when not activated renders as inactive 1`] = `
 <button
-  class=""
+  class="lil-button"
 />
 `;
