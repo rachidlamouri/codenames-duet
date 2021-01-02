@@ -1,7 +1,7 @@
 <template>
   <button
     :class="classes"
-    @click="click"
+    @click="$emit('click')"
   />
 </template>
 
@@ -18,11 +18,6 @@ export default {
       return {
         activated: this.activated,
       };
-    },
-  },
-  methods: {
-    click() {
-      this.$emit('click');
     },
   },
 };
