@@ -39,7 +39,7 @@ export default {
     border-radius: 25%;
 
     &.activated {
-      background-color: colors.$success;
+      background-color: colors.$accent-dark;
     }
   }
 </style>

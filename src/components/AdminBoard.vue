@@ -44,22 +44,21 @@ export default {
 
   #admin-board {
     display: grid;
-    justify-items: end;
     grid:
-    "admin-button-top" constants.$reset-button-size
+    "top" constants.$reset-button-size
     "." auto
-    "admin-button-bottom" constants.$reset-button-size;
+    "bottom" constants.$reset-button-size;
 
     .admin-button-top {
-      grid-area: admin-button-top;
+      grid-area: top;
     }
 
     .admin-button-bottom {
-      grid-area: admin-button-bottom;
+      grid-area: bottom;
     }
 
     button.activated {
-      background-color: colors.$error;
+      background-color: colors.$accent-dark;
     }
   }
 </style>
