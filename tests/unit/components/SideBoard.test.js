@@ -8,7 +8,7 @@ const { mount, shallowMount } = getMountUtils({
 });
 
 describe('components/SideBoard', () => {
-  describe('at the beginning of the game', () => {
+  context('at the beginning of the game', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
@@ -34,7 +34,7 @@ describe('components/SideBoard', () => {
     });
   });
 
-  describe('when turns have been used', () => {
+  context('when turns have been used', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
@@ -50,7 +50,7 @@ describe('components/SideBoard', () => {
     });
   });
 
-  describe('when too many turns have been used', () => {
+  context('when too many turns have been used', () => {
     let wrapper;
     let turnCounterElements;
     beforeAll(() => {
@@ -74,7 +74,7 @@ describe('components/SideBoard', () => {
     });
   });
 
-  describe('when both reset buttons are pressed', () => {
+  context('when both reset buttons are pressed', () => {
     let wrapper;
     let topResetButton;
     let bottomResetButton;
@@ -96,7 +96,7 @@ describe('components/SideBoard', () => {
     });
   });
 
-  describe('when a reset button is pressed twice before the other reset button is pressed', () => {
+  context('when a reset button is pressed twice before the other reset button is pressed', () => {
     let wrapper;
     let topResetButton;
     let bottomResetButton;

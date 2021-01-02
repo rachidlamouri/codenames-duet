@@ -5,6 +5,8 @@ import { genMockStore } from './generators';
 
 expect.extend(matchers);
 
+global.context = describe;
+
 global.getMountUtils = ({
   component,
   defaultProps = {},

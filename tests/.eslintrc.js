@@ -4,6 +4,7 @@ module.exports = {
     jest: true,
   },
   globals: {
+    context: 'readonly',
     getMountUtils: 'readonly',
     test: 'off', // disabling in favor of 'it'
   },

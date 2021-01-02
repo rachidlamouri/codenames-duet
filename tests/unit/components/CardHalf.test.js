@@ -14,7 +14,7 @@ const getWordContainer = (wrapper) => wrapper.find('.word');
 const getButtonGroup = (wrapper) => wrapper.find('.button-group');
 
 describe('components/CardHalf', () => {
-  describe('by default', () => {
+  context('by default', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
@@ -33,7 +33,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when player id is 0', () => {
+  context('when player id is 0', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
@@ -48,7 +48,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when player id is 1', () => {
+  context('when player id is 1', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
@@ -63,7 +63,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when pressed', () => {
+  context('when pressed', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount();
@@ -76,7 +76,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when pressed twice', () => {
+  context('when pressed twice', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount();
@@ -90,7 +90,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when the agent button is pressed', () => {
+  context('when the agent button is pressed', () => {
     let wrapper;
     const updateCardStatus = jest.fn();
     beforeAll((done) => {
@@ -123,7 +123,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when the bystander button is pressed', () => {
+  context('when the bystander button is pressed', () => {
     let wrapper;
     const updateCardStatus = jest.fn();
     beforeAll((done) => {
@@ -156,7 +156,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when the assassin button is pressed', () => {
+  context('when the assassin button is pressed', () => {
     let wrapper;
     const updateCardStatus = jest.fn();
     beforeAll((done) => {
@@ -189,7 +189,7 @@ describe('components/CardHalf', () => {
     });
   });
 
-  describe('when the reset button is pressed', () => {
+  context('when the reset button is pressed', () => {
     let wrapper;
     const updateCardStatus = jest.fn();
     beforeAll((done) => {

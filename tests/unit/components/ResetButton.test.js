@@ -5,7 +5,7 @@ const { shallowMount } = getMountUtils({
 });
 
 describe('components/ResetButton', () => {
-  describe('when not activated', () => {
+  context('when not activated', () => {
     it('renders as inactive', () => {
       const wrapper = shallowMount({
         props: {
@@ -16,7 +16,7 @@ describe('components/ResetButton', () => {
     });
   });
 
-  describe('when activated', () => {
+  context('when activated', () => {
     it('renders as activated', () => {
       const wrapper = shallowMount({
         props: {

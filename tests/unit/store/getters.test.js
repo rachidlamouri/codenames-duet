@@ -5,14 +5,14 @@ const { utils } = require('src/utils');
 
 describe('getters', () => {
   describe('turnsTaken', () => {
-    describe('at the beginning of the game', () => {
+    context('at the beginning of the game', () => {
       it('returns 0', () => {
         const state = getInitialState();
         expect(getters.turnsTaken(state)).toBe(0);
       });
     });
 
-    describe('when players have successful and unsuccessful turns', () => {
+    context('when players have successful and unsuccessful turns', () => {
       it('returns the sum of all successful and unsuccessful turns', () => {
         const state = genStoreState({
           cards: [

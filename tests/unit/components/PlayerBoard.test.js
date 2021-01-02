@@ -10,14 +10,14 @@ const { mount, shallowMount } = getMountUtils({
 const getAddCounterButton = (wrapper) => wrapper.find('button.add-counter');
 
 describe('components/PlayerBoard', () => {
-  describe('always', () => {
+  context('always', () => {
     it('renders an "add counter" button', () => {
       const wrapper = shallowMount();
       expect(getAddCounterButton(wrapper).element).toMatchSnapshot();
     });
   });
 
-  describe('at the beginning of the game', () => {
+  context('at the beginning of the game', () => {
     it('does not render turn counters', () => {
       const wrapper = shallowMount({
         store: getInitialState(),
@@ -28,7 +28,7 @@ describe('components/PlayerBoard', () => {
     });
   });
 
-  describe('when the "add counter" button is pressed', () => {
+  context('when the "add counter" button is pressed', () => {
     let wrapper;
     let addCounterButton;
     const updateSuccessfulTurnCount = jest.fn();
@@ -56,7 +56,7 @@ describe('components/PlayerBoard', () => {
     });
   });
 
-  describe('when the player has taken turns', () => {
+  context('when the player has taken turns', () => {
     let wrapper;
     let turnCounters;
     beforeAll(() => {
@@ -82,7 +82,7 @@ describe('components/PlayerBoard', () => {
     });
   });
 
-  describe('when a turn counter is pressed', () => {
+  context('when a turn counter is pressed', () => {
     let wrapper;
     let secondTurnCounter;
     const updateSuccessfulTurnCount = jest.fn();

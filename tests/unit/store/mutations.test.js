@@ -26,7 +26,7 @@ describe('mutations', () => {
   });
 
   describe('updateCardStatus', () => {
-    describe('with a valid status', () => {
+    context('with a valid status', () => {
       const state = genStoreState({
         cards: [undefined, undefined, { status: [null, 'agent'] }],
       });
@@ -42,7 +42,7 @@ describe('mutations', () => {
       itLeavesTheStoreInAValidState(state);
     });
 
-    describe('with an invalid status', () => {
+    context('with an invalid status', () => {
       it('throws an error', () => {
         const testFn = () => {
           mutations.updateCardStatus(genStoreState(), { playerId: 0, status: 'bagel' });
