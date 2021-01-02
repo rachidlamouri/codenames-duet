@@ -6,12 +6,11 @@ export const getters = {
     );
 
     const failedTurns = state.cards.reduce(
-      (turnsTaken, card) => {
-        const player0TurnsTaken = card.isBystander[0] ? 1 : 0;
-        const player1TurnsTaken = card.isBystander[1] ? 1 : 0;
-
-        return turnsTaken + player0TurnsTaken + player1TurnsTaken;
-      },
+      (turnsTaken, card) => (
+        turnsTaken
+        + (card.status[0] === 'bystander' ? 1 : 0)
+        + (card.status[1] === 'bystander' ? 1 : 0)
+      ),
       0,
     );
 

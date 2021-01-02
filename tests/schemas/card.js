@@ -9,7 +9,7 @@ const status = {
   ],
 };
 
-// TODO: update getters.turnsTaken and Card.vue to use "status"
+// TODO: update Card.vue to use "status"
 export const buildCardSchema = (id) => strictObject({
   id: { const: id },
   word: {
