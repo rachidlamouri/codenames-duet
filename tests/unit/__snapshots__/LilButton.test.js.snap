@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/LilButton when activated renders as activated 1`] = `
+<button
+  class="grey activated"
+/>
+`;
+
+exports[`components/LilButton when green renders as green 1`] = `
+<button
+  class="green"
+/>
+`;
+
+exports[`components/LilButton when grey renders as grey 1`] = `
+<button
+  class="grey"
+/>
+`;
+
+exports[`components/LilButton when not activated renders as inactive 1`] = `
+<button
+  class="grey"
+/>
+`;
