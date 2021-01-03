@@ -2,7 +2,7 @@
   <div>
     <lil-button
       class="lil-button-top"
-      :type="'green'"
+      type="green"
       :activated="resetState[0]"
       @click="reset(0)"
     />
@@ -15,7 +15,7 @@
     </div>
     <lil-button
       class="lil-button-bottom"
-      :type="'green'"
+      type="green"
       :activated="resetState[1]"
       @click="reset(1)"
     />

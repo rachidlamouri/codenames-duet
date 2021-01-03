@@ -15,7 +15,7 @@ export default {
     type: {
       type: String,
       default: 'grey',
-      validator: (v) => ['green', 'grey'].indexOf(v) >= 0,
+      validator: (v) => ['green', 'grey'].includes(v),
     },
   },
   computed: {
