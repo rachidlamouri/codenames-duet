@@ -1,7 +1,6 @@
 <template>
   <div
     id="root"
-    :class="classes"
   >
     <side-board id="side-board" />
     <card-board id="card-board" />
@@ -36,11 +35,6 @@ export default {
   },
   computed: {
     ...mapState(['adminMode', 'flags']),
-    classes() {
-      return {
-        admin: this.adminMode,
-      };
-    },
   },
 };
 </script>
@@ -72,10 +66,6 @@ export default {
     width: 100%;
     height: 100%;
     padding: padding.$lg;
-
-    &.admin {
-      background-color: colors.$accent-dark;
-    }
   }
 
   #side-board {

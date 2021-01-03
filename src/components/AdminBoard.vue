@@ -61,7 +61,6 @@ export default {
       text-align: center;
       writing-mode: vertical-rl;
       text-orientation: sideways-right;
-      color: colors.$accent-light;
       font-size: constants.$admin-board-width;
     }
   }
