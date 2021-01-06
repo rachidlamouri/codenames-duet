@@ -1,6 +1,6 @@
 const { getInitialState } = require('store/getInitialState');
 const { getters } = require('store/getters');
-const { genStoreState } = require('generators');
+const { genStoreState } = require('helpers/generators');
 const { utils } = require('src/utils');
 
 describe('getters', () => {

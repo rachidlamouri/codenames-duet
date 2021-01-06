@@ -1,5 +1,5 @@
 import { getInitialState } from 'store/getInitialState';
-import { storeState } from 'schemas';
+import { storeState } from 'helpers/schemas';
 
 describe('store/getInitialState', () => {
   it('returns a valid state', () => {

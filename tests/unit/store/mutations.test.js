@@ -1,5 +1,5 @@
-import { genStoreState } from 'generators';
-import { storeState } from 'schemas';
+import { genStoreState } from 'helpers/generators';
+import { storeState } from 'helpers/schemas';
 import { mutations } from 'store/mutations';
 
 const itLeavesTheStoreInAValidState = (state) => {

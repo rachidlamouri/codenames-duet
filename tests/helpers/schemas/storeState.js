@@ -1,4 +1,4 @@
-import { utils } from '../../src/utils';
+import { utils } from 'src/utils';
 import { BOOLEAN, strictObject, strictTuple } from './utils';
 import { buildCardSchema } from './card';
 import { buildPlayerSchema } from './player';

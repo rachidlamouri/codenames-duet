@@ -1,7 +1,7 @@
 import Card from 'components/Card.vue';
 import CardHalf from 'components/CardHalf.vue';
 import { utils } from 'src/utils';
-import { genCard } from 'generators';
+import { genCard } from 'helpers/generators';
 
 const { shallowMount } = getMountUtils({
   component: Card,

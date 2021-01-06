@@ -1,7 +1,7 @@
 import { matchers } from 'jest-json-schema';
 import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
-import { genMockStore } from './generators';
+import { genMockStore } from './helpers/generators';
 
 expect.extend(matchers);
 
