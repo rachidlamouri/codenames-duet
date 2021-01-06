@@ -1,7 +1,7 @@
 <template>
   <button
     :class="classes"
-    @click="reset"
+    @click="$emit('click')"
   />
 </template>
 
@@ -12,17 +12,18 @@ export default {
       type: Boolean,
       required: true,
     },
+    type: {
+      type: String,
+      default: 'grey',
+      validator: (v) => ['green', 'grey'].includes(v),
+    },
   },
   computed: {
     classes() {
       return {
+        [this.type]: true,
         activated: this.activated,
       };
-    },
-  },
-  methods: {
-    reset() {
-      this.$emit('reset');
     },
   },
 };
@@ -33,13 +34,19 @@ export default {
   @use 'styles/constants';
 
   button {
-    width: constants.$reset-button-size;
-    height: constants.$reset-button-size;
+    width: constants.$lil-button-size;
+    height: constants.$lil-button-size;
     background-color: colors.$accent-light;
     border-radius: 25%;
 
     &.activated {
-      background-color: colors.$success;
+      &.green {
+        background-color: colors.$success;
+      }
+
+      &.grey {
+        background-color: colors.$accent-dark;
+      }
     }
   }
 </style>

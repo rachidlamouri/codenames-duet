@@ -1,6 +1,6 @@
 import { getInitialState } from 'store/getInitialState';
 import SideBoard from 'components/SideBoard.vue';
-import ResetButton from 'components/ResetButton.vue';
+import LilButton from 'components/LilButton.vue';
 import TurnCounter from 'components/TurnCounter.vue';
 
 const { mount, shallowMount } = getMountUtils({
@@ -20,7 +20,7 @@ describe('components/SideBoard', () => {
     });
 
     it('renders two reset buttons', () => {
-      expect(wrapper.findAllComponents(ResetButton).length).toBe(2);
+      expect(wrapper.findAllComponents(LilButton).length).toBe(2);
     });
 
     it('renders nine turn counters', () => {
@@ -86,7 +86,7 @@ describe('components/SideBoard', () => {
         },
       });
 
-      [topResetButton, bottomResetButton] = wrapper.findAllComponents(ResetButton).wrappers;
+      [topResetButton, bottomResetButton] = wrapper.findAllComponents(LilButton).wrappers;
       topResetButton.trigger('click');
       bottomResetButton.trigger('click');
     });
@@ -108,7 +108,7 @@ describe('components/SideBoard', () => {
         },
       });
 
-      [topResetButton, bottomResetButton] = wrapper.findAllComponents(ResetButton).wrappers;
+      [topResetButton, bottomResetButton] = wrapper.findAllComponents(LilButton).wrappers;
       topResetButton.trigger('click');
       topResetButton.trigger('click');
       bottomResetButton.trigger('click');

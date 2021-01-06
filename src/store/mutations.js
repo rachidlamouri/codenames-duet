@@ -13,4 +13,7 @@ export const mutations = {
 
     Vue.set(state.cards[cardId].status, playerId, status);
   },
+  toggleAdminMode(state) {
+    state.adminMode = !state.adminMode;
+  },
 };

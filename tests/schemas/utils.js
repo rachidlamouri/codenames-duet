@@ -1,4 +1,7 @@
 module.exports = {
+  BOOLEAN: {
+    type: 'boolean',
+  },
   REALISTIC_POSITIVE_INTEGER: {
     type: 'integer',
     minimum: 0,
