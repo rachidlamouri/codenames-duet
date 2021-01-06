@@ -1,34 +1,29 @@
 <template>
   <div class="card-board">
     <div
-      v-for="rowId in 5"
-      :key="`card-row-${rowId}`"
+      v-for="rowNum in 5"
+      :key="`card-row-${rowNum}`"
       class="row"
     >
       <card
-        v-for="card in getCards(rowId - 1)"
-        :key="`card-${card.id}`"
-        :card="card"
+        v-for="colNum in 5"
+        :key="`card-${getCardId(rowNum, colNum)}`"
+        :card-id="getCardId(rowNum, colNum)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import Card from './Card.vue';
 
 export default {
   components: {
     Card,
   },
-  computed: {
-    ...mapState(['cards']),
-  },
   methods: {
-    getCards(rowId) {
-      const start = rowId * 5;
-      return this.cards.slice(start, start + 5);
+    getCardId(rowNum, colNum) {
+      return (rowNum - 1) * 5 + (colNum - 1);
     },
   },
 };
@@ -47,6 +42,7 @@ export default {
   .row {
     display: flex;
     flex: 1;
+    flex-shrink: 0;
   }
 }
 </style>

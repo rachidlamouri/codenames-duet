@@ -16,7 +16,14 @@
       "json",
       "vue"
     ],
-    "setupFiles": [
+    "moduleNameMapper": {
+      "^components/(.*)$": "<rootDir>/src/components/$1",
+      "^helpers/(.*)$": "<rootDir>/tests/helpers/$1",
+      "^src/(.*)$": "<rootDir>/src/$1",
+      "^store/(.*)$": "<rootDir>/src/store/$1"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/bootstrapVue.js",
       "<rootDir>/tests/setup.js"
     ],
     "snapshotSerializers": [
@@ -30,17 +37,20 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@randograms/schema-to-generator": "^0.5.0",
     "@vue/test-utils": "^1.1.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.6.3",
     "css-loader": "3.2.0",
     "eslint": "7.15.0",
     "eslint-config-airbnb-base": "14.2.1",
+    "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-vue": "7.2.0",
     "html-webpack-plugin": "4.5.0",
     "husky": "4.3.5",
     "jest": "^26.6.3",
+    "jest-json-schema": "^2.1.0",
     "jest-serializer-vue": "^2.0.2",
     "sass": "^1.32.0",
     "sass-loader": "10.1.0",

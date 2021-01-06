@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/SideBoard at the beginning of the game renders normal counters 1`] = `
+Array [
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+  <turn-counter-stub
+    type="normal"
+  />,
+]
+`;
+
+exports[`components/SideBoard when too many turns have been used renders error counters 1`] = `
+Array [
+  <turn-counter-stub
+    type="error"
+  />,
+  <turn-counter-stub
+    type="error"
+  />,
+  <turn-counter-stub
+    type="error"
+  />,
+]
+`;

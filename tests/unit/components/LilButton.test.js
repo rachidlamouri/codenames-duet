@@ -1,4 +1,4 @@
-import LilButton from '../../src/components/LilButton.vue';
+import LilButton from 'src/components/LilButton.vue';
 
 const { shallowMount } = getMountUtils({
   component: LilButton,
@@ -6,7 +6,7 @@ const { shallowMount } = getMountUtils({
 
 describe('components/LilButton', () => {
   describe('when not activated', () => {
-    test('renders as inactive', () => {
+    it('renders as inactive', () => {
       const wrapper = shallowMount({
         props: {
           activated: false,
@@ -17,7 +17,7 @@ describe('components/LilButton', () => {
   });
 
   describe('when activated', () => {
-    test('renders as activated', () => {
+    it('renders as activated', () => {
       const wrapper = shallowMount({
         props: {
           activated: true,
@@ -28,7 +28,7 @@ describe('components/LilButton', () => {
   });
 
   describe('when green', () => {
-    test('renders as green', () => {
+    it('renders as green', () => {
       const wrapper = shallowMount({
         props: {
           type: 'green',
@@ -40,7 +40,7 @@ describe('components/LilButton', () => {
   });
 
   describe('when grey', () => {
-    test('renders as grey', () => {
+    it('renders as grey', () => {
       const wrapper = shallowMount({
         props: {
           type: 'grey',

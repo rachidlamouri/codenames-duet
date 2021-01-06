@@ -1,20 +1,43 @@
-const { mount, shallowMount } = require('@vue/test-utils');
+import { matchers } from 'jest-json-schema';
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+import { genMockStore } from './helpers/generators';
+
+expect.extend(matchers);
+
+global.context = describe;
 
 global.getMountUtils = ({
   component,
-} = {}) => ({
-  mount: ({ props, ...options } = {}) => mount(
-    component,
-    {
-      ...options,
-      propsData: props,
-    },
-  ),
-  shallowMount: ({ props, ...options } = {}) => shallowMount(
-    component,
-    {
-      ...options,
-      propsData: props,
-    },
-  ),
-});
+  defaultProps = {},
+} = {}) => {
+  const localVue = createLocalVue();
+  localVue.use(Vuex);
+
+  return {
+    mount: ({ props = {}, flatStore, ...options } = {}) => mount(
+      component,
+      {
+        ...options,
+        propsData: {
+          ...defaultProps,
+          ...props,
+        },
+        localVue,
+        store: genMockStore(flatStore),
+      },
+    ),
+    shallowMount: ({ props = {}, flatStore, ...options } = {}) => shallowMount(
+      component,
+      {
+        ...options,
+        propsData: {
+          ...defaultProps,
+          ...props,
+        },
+        localVue,
+        store: genMockStore(flatStore),
+      },
+    ),
+  };
+};

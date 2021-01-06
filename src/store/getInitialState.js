@@ -1,6 +1,5 @@
 import dictionary from '../dictionary';
-
-const range = (count) => Array.from({ length: count }).map((value, index) => index);
+import { utils } from '../utils';
 
 const getWord = () => {
   const wordIndex = Math.floor(Math.random() * dictionary.length);
@@ -10,9 +9,7 @@ const getWord = () => {
 const makeCardState = (id) => ({
   id,
   word: getWord().toUpperCase(),
-  isAssassin: [false, false],
-  isAgent: [false, false],
-  isBystander: [false, false],
+  status: [null, null],
 });
 
 const makePlayerState = (id) => ({
@@ -21,8 +18,8 @@ const makePlayerState = (id) => ({
 });
 
 export const getInitialState = () => ({
-  cards: range(25).map((index) => makeCardState(index)),
-  players: range(2).map((index) => makePlayerState(index)),
+  cards: utils.range(25).map((index) => makeCardState(index)),
+  players: utils.range(2).map((index) => makePlayerState(index)),
   sideboard: {
     maxTurns: 9,
   },

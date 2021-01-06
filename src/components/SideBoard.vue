@@ -10,7 +10,7 @@
       <turn-counter
         v-for="index in remainingCount"
         :key="`remaining-turn-counter-${index}`"
-        :type="isInErrorState ? 'error' : 'remaining'"
+        :type="isInErrorState ? 'error' : 'normal'"
       />
     </div>
     <lil-button
@@ -24,7 +24,7 @@
 
 <script>
 import Vue from 'vue';
-import { mapGetters, mapState } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import LilButton from './LilButton.vue';
 import TurnCounter from './TurnCounter.vue';
 
@@ -56,11 +56,12 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['reload']),
     reset(playerId) {
       Vue.set(this.resetState, playerId, !this.resetState[playerId]);
 
       if (this.resetState.every((value) => value)) {
-        window.location.reload();
+        this.reload();
       }
     },
   },

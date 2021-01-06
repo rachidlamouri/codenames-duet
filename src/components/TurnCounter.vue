@@ -12,6 +12,7 @@ export default {
     type: {
       type: String,
       required: true,
+      validator: (value) => ['error', 'normal', 'player'].includes(value),
     },
   },
 };
@@ -21,16 +22,16 @@ export default {
   @use 'styles/colors';
 
   .turn-counter {
-    &.player {
-      background-color: colors.$success;
+    &.error {
+      background-color: colors.$error;
     }
 
-    &.remaining {
+    &.normal {
       background-color: colors.$accent-dark;
     }
 
-    &.error {
-      background-color: colors.$error;
+    &.player {
+      background-color: colors.$success;
     }
   }
 </style>

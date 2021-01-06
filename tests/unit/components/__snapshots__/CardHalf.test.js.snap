@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/CardHalf by default renders the word 1`] = `
+<div
+  class="word"
+>
+  
+    THE WORD
+  
+</div>
+`;
+
+exports[`components/CardHalf when pressed renders buttons 1`] = `
+<div
+  class="button-group"
+>
+  <button
+    class="reset"
+  />
+   
+  <button
+    class="assassin"
+  />
+   
+  <button
+    class="bystander"
+  />
+   
+  <button
+    class="agent"
+  />
+</div>
+`;

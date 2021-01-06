@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/PlayerBoard always renders an "add counter" button 1`] = `
+<button
+  class="add-counter counter-like"
+/>
+`;
+
+exports[`components/PlayerBoard when the player has taken turns renders "player" turn counters 1`] = `
+Array [
+  <turn-counter-stub
+    type="player"
+  />,
+  <turn-counter-stub
+    type="player"
+  />,
+]
+`;
