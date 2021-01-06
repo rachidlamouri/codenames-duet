@@ -12,7 +12,7 @@ describe('components/SideBoard', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
-        store: {
+        flatStore: {
           ...getInitialState(),
           turnsTaken: 0,
         },
@@ -38,7 +38,7 @@ describe('components/SideBoard', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount({
-        store: {
+        flatStore: {
           sideboard: { maxTurns: 9 },
           turnsTaken: 3,
         },
@@ -55,7 +55,7 @@ describe('components/SideBoard', () => {
     let turnCounterElements;
     beforeAll(() => {
       wrapper = shallowMount({
-        store: {
+        flatStore: {
           sideboard: { maxTurns: 9 },
           turnsTaken: 12,
         },
@@ -81,7 +81,7 @@ describe('components/SideBoard', () => {
     const reload = jest.fn();
     beforeAll(() => {
       wrapper = mount({
-        store: {
+        flatStore: {
           reload,
         },
       });
@@ -103,7 +103,7 @@ describe('components/SideBoard', () => {
     const reload = jest.fn();
     beforeAll(() => {
       wrapper = mount({
-        store: {
+        flatStore: {
           reload,
         },
       });

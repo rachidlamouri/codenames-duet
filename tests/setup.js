@@ -15,7 +15,7 @@ global.getMountUtils = ({
   localVue.use(Vuex);
 
   return {
-    mount: ({ props = {}, store, ...options } = {}) => mount(
+    mount: ({ props = {}, flatStore, ...options } = {}) => mount(
       component,
       {
         ...options,
@@ -24,10 +24,10 @@ global.getMountUtils = ({
           ...props,
         },
         localVue,
-        store: genMockStore(store),
+        store: genMockStore(flatStore),
       },
     ),
-    shallowMount: ({ props = {}, store, ...options } = {}) => shallowMount(
+    shallowMount: ({ props = {}, flatStore, ...options } = {}) => shallowMount(
       component,
       {
         ...options,
@@ -36,7 +36,7 @@ global.getMountUtils = ({
           ...props,
         },
         localVue,
-        store: genMockStore(store),
+        store: genMockStore(flatStore),
       },
     ),
   };

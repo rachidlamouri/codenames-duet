@@ -99,7 +99,7 @@ describe('components/CardHalf', () => {
           card: genCard({ id: 4 }),
           playerId: 1,
         },
-        store: {
+        flatStore: {
           updateCardStatus,
         },
       });
@@ -132,7 +132,7 @@ describe('components/CardHalf', () => {
           card: genCard({ id: 7 }),
           playerId: 0,
         },
-        store: {
+        flatStore: {
           updateCardStatus,
         },
       });
@@ -165,7 +165,7 @@ describe('components/CardHalf', () => {
           card: genCard({ id: 2 }),
           playerId: 1,
         },
-        store: {
+        flatStore: {
           updateCardStatus,
         },
       });
@@ -198,7 +198,7 @@ describe('components/CardHalf', () => {
           card: genCard({ id: 6 }),
           playerId: 0,
         },
-        store: {
+        flatStore: {
           updateCardStatus,
         },
       });

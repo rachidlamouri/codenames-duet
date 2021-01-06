@@ -20,7 +20,7 @@ describe('components/PlayerBoard', () => {
   context('at the beginning of the game', () => {
     it('does not render turn counters', () => {
       const wrapper = shallowMount({
-        store: getInitialState(),
+        flatStore: getInitialState(),
       });
 
       const turnCounters = wrapper.findAllComponents(TurnCounter).wrappers;
@@ -35,7 +35,7 @@ describe('components/PlayerBoard', () => {
     beforeAll(() => {
       wrapper = shallowMount({
         props: { playerId: 1 },
-        store: {
+        flatStore: {
           players: [
             undefined,
             { successfulTurnCount: 5 },
@@ -62,7 +62,7 @@ describe('components/PlayerBoard', () => {
     beforeAll(() => {
       wrapper = shallowMount({
         props: { playerId: 0 },
-        store: {
+        flatStore: {
           players: [
             { successfulTurnCount: 2 },
           ],
@@ -89,7 +89,7 @@ describe('components/PlayerBoard', () => {
     beforeAll(() => {
       wrapper = mount({
         props: { playerId: 0 },
-        store: {
+        flatStore: {
           players: [
             { successfulTurnCount: 3 },
           ],

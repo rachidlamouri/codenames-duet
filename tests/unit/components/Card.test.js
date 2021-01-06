@@ -17,7 +17,7 @@ describe('components/Card', () => {
       props: {
         cardId: 4,
       },
-      store: {
+      flatStore: {
         cards: [
           ...utils.range(4).map(utils.noop),
           card,
