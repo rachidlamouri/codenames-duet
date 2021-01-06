@@ -7,24 +7,23 @@
     <div class="word">
       {{ card.word }}
     </div>
-    <div class="button-group">
+    <div
+      v-if="showButtons"
+      class="button-group"
+    >
       <button
-        v-if="showButtons"
         class="reset"
         @click="setStatus(null)"
       />
       <button
-        v-if="showButtons"
         class="assassin"
         @click="setStatus('assassin')"
       />
       <button
-        v-if="showButtons"
         class="bystander"
         @click="setStatus('bystander')"
       />
       <button
-        v-if="showButtons"
         class="agent"
         @click="setStatus('agent')"
       />
@@ -94,8 +93,11 @@ export default {
     &.agent,
     &.assassin,
     &.bystander {
-      color: colors.$accent-light;
       border-bottom: 0.5px solid colors.$accent-light;
+
+      * {
+        color: colors.$accent-light;
+      }
     }
 
     &.agent {
@@ -113,13 +115,17 @@ export default {
     .button-group {
       display: flex;
 
-      $size: 40px;
+      $size: 20px;
       button {
-        width: $size;
+        flex: 1;
+        min-width: $size;
         height: $size;
-        margin-right: padding.$sm;
-        border-radius: 20%;
-        border: 1px solid white;
+        border-radius: 10%;
+        border: 1px solid colors.$accent-light;
+
+        &:not(:last-of-type) {
+          margin-right: padding.$sm;
+        }
 
         &.agent {
           background-color: colors.$success;

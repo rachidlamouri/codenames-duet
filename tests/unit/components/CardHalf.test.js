@@ -11,7 +11,7 @@ const { shallowMount } = getMountUtils({
 });
 
 const getWordContainer = (wrapper) => wrapper.find('.word');
-const getButtonGroup = (wrapper) => wrapper.find('.button-group');
+const getButtonGroup = (wrapper) => wrapper.get('.button-group');
 
 describe('components/CardHalf', () => {
   context('by default', () => {
@@ -29,7 +29,7 @@ describe('components/CardHalf', () => {
     });
 
     it('does not render buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 
@@ -86,7 +86,7 @@ describe('components/CardHalf', () => {
     });
 
     it('hides the buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 
@@ -119,7 +119,7 @@ describe('components/CardHalf', () => {
     });
 
     it('hides the buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 
@@ -152,7 +152,7 @@ describe('components/CardHalf', () => {
     });
 
     it('hides the buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 
@@ -185,7 +185,7 @@ describe('components/CardHalf', () => {
     });
 
     it('hides the buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 
@@ -218,7 +218,7 @@ describe('components/CardHalf', () => {
     });
 
     it('hides the buttons', () => {
-      expect(getButtonGroup(wrapper).element).toMatchSnapshot();
+      expect(() => getButtonGroup(wrapper)).toThrow('Unable to find');
     });
   });
 });

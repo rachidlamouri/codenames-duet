@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/CardHalf by default does not render buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</div>
-`;
-
 exports[`components/CardHalf by default renders the word 1`] = `
 <div
   class="word"
@@ -43,75 +29,5 @@ exports[`components/CardHalf when pressed renders buttons 1`] = `
   <button
     class="agent"
   />
-</div>
-`;
-
-exports[`components/CardHalf when pressed twice hides the buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</div>
-`;
-
-exports[`components/CardHalf when the agent button is pressed hides the buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</div>
-`;
-
-exports[`components/CardHalf when the assassin button is pressed hides the buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</div>
-`;
-
-exports[`components/CardHalf when the bystander button is pressed hides the buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</div>
-`;
-
-exports[`components/CardHalf when the reset button is pressed hides the buttons 1`] = `
-<div
-  class="button-group"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
-  <!---->
 </div>
 `;
