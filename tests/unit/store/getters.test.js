@@ -1,7 +1,7 @@
-const { getInitialState } = require('store/getInitialState');
-const { getters } = require('store/getters');
-const { genStoreState } = require('helpers/generators');
-const { utils } = require('src/utils');
+import { getInitialState } from 'store/getInitialState';
+import { getters } from 'store/getters';
+import { genStoreState } from 'helpers/generators';
+import { utils } from 'src/utils';
 
 describe('getters', () => {
   describe('turnsTaken', () => {
