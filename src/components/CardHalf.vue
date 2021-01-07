@@ -13,13 +13,13 @@
     >
       <button
         class="reroll"
-        @click="setStatus('reroll')"
+        @click="rerollWord(card)"
       >
         REROLL
       </button>
       <button
         class="disallow"
-        @click="setStatus('disallow')"
+        @click="disallowWord(card)"
       >
         DISALLOW
       </button>
@@ -74,7 +74,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['updateCardStatus']),
+    ...mapMutations(['updateCardStatus', 'disallowWord', 'rerollWord']),
     toggleButtons() {
       this.showButtons = !this.showButtons;
     },

@@ -1,14 +1,8 @@
-import dictionary from '../dictionary';
 import { utils } from '../utils';
-
-const getWord = () => {
-  const wordIndex = Math.floor(Math.random() * dictionary.length);
-  return dictionary[wordIndex];
-};
 
 const makeCardState = (id) => ({
   id,
-  word: getWord().toUpperCase(),
+  word: utils.getWord(),
   status: [null, null],
 });
 
