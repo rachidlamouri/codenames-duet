@@ -8,7 +8,24 @@
       {{ card.word }}
     </div>
     <div
-      v-if="showButtons"
+      v-if="showButtons && adminMode"
+      class="button-group"
+    >
+      <button
+        class="reroll"
+        @click="setStatus('reroll')"
+      >
+        REROLL
+      </button>
+      <button
+        class="disallow"
+        @click="setStatus('disallow')"
+      >
+        DISALLOW
+      </button>
+    </div>
+    <div
+      v-if="showButtons && !adminMode"
       class="button-group"
     >
       <button
@@ -32,7 +49,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   props: {
@@ -51,6 +68,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(['adminMode']),
     position() {
       return this.playerId === 0 ? 'top' : 'bottom';
     },
@@ -139,7 +157,7 @@ export default {
           background-color: colors.$assassin;
         }
 
-        &.reset {
+        &.reset, &.reroll, &.disallow {
           background-color: colors.$accent-light;
           border-color: colors.$accent-dark;
         }
