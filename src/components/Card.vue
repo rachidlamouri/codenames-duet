@@ -39,8 +39,8 @@ export default {
 @use 'styles/constants';
 
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
   border: 1px solid colors.$borders;
   border-radius: 5px;
   margin: constants.$card-margin;
