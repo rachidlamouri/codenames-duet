@@ -1,16 +1,10 @@
 <template>
   <div class="card-board">
-    <div
-      v-for="rowNum in 5"
-      :key="`card-row-${rowNum}`"
-      class="row"
-    >
-      <card
-        v-for="colNum in 5"
-        :key="`card-${getCardId(rowNum, colNum)}`"
-        :card-id="getCardId(rowNum, colNum)"
-      />
-    </div>
+    <card
+      v-for="indexFrom1 in 25"
+      :key="`card-${indexFrom1 - 1}`"
+      :card-id="indexFrom1 - 1"
+    />
   </div>
 </template>
 
@@ -21,11 +15,6 @@ export default {
   components: {
     Card,
   },
-  methods: {
-    getCardId(rowNum, colNum) {
-      return (rowNum - 1) * 5 + (colNum - 1);
-    },
-  },
 };
 </script>
 
@@ -33,16 +22,9 @@ export default {
 @use 'styles/constants';
 
 #card-board {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 20%);
   padding: constants.$card-margin;
-
-  .row {
-    display: flex;
-    flex: 1;
-    flex-shrink: 0;
-  }
 }
 </style>

@@ -41,8 +41,6 @@ export default {
 .card {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  flex-shrink: 0;
   border: 1px solid colors.$borders;
   border-radius: 5px;
   margin: constants.$card-margin;
