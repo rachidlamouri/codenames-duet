@@ -1,0 +1,20 @@
+{
+  "configurations": [
+    {
+      "name": "Functional Tests",
+      "request": "launch",
+      "runtimeArgs": [
+        "run",
+        "test:functional",
+        "--",
+        "--name",
+        "^.*$",
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    }
+  ]
+}
