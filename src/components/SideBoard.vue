@@ -1,7 +1,7 @@
 <template>
   <div>
     <lil-button
-      class="lil-button-top"
+      class="reset-button top"
       type="green"
       :activated="resetState[0]"
       @click="reset(0)"
@@ -14,7 +14,7 @@
       />
     </div>
     <lil-button
-      class="lil-button-bottom"
+      class="reset-button bottom"
       type="green"
       :activated="resetState[1]"
       @click="reset(1)"
@@ -78,7 +78,7 @@ export default {
     grid-template-columns: 1;
     grid-template-rows: constants.$lil-button-size auto constants.$lil-button-size;
 
-    .lil-button-top {
+    .reset-button.top {
       grid-row-start: 1;
       grid-row-end: 2;
     }
@@ -97,7 +97,7 @@ export default {
       }
     }
 
-    .lil-button-bottom {
+    .reset-button.bottom {
       grid-row-start: 3;
       grid-row-end: 4;
     }
