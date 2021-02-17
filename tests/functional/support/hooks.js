@@ -1,3 +1,4 @@
+global.nativePromise = Promise;
 global.Promise = require('bluebird');
 global.expect = require('chai')
   .use(require('chai-json-schema-ajv'))

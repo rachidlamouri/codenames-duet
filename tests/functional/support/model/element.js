@@ -6,8 +6,4 @@ module.exports.Element = class {
 
     this.element = elementHandle;
   }
-
-  async click() {
-    await this.element.click();
-  }
 };
