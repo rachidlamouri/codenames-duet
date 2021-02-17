@@ -19,17 +19,20 @@ describe('getters', () => {
             ...utils.range(10).map(() => ({ status: ['agent', 'agent'] })),
             { status: ['bystander', null] },
             { status: [null, 'bystander'] },
-            { status: [null, 'bystander'] },
-            { status: [null, 'bystander'] },
             { status: ['bystander', 'bystander'] },
-            ...utils.range(10).map(() => ({ status: ['assassin', 'assassin'] })),
+            { status: ['assassin', null] },
+            { status: [null, 'assassin'] },
+            { status: ['assassin', 'assassin'] },
+            { status: ['bystander', 'assassin'] },
+            { status: ['assassin', 'bystander'] },
+            ...utils.range(7).map(() => ({ status: ['agent', 'agent'] })),
           ],
           players: [
             { successfulTurnCount: 5 },
             { successfulTurnCount: 7 },
           ],
         });
-        expect(getters.turnsTaken(state)).toBe(18);
+        expect(getters.turnsTaken(state)).toBe(24);
       });
     });
   });

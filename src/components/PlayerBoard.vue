@@ -61,12 +61,12 @@ export default {
     align-items: center;
 
     $starting-edge-offset: 400px;
-    &.player-board-0 {
+    &#player-board-0 {
       flex-direction: row-reverse;
       padding-right: $starting-edge-offset;
     }
 
-    &.player-board-1 {
+    &#player-board-1 {
       padding-left: $starting-edge-offset;
     }
 

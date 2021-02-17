@@ -8,8 +8,8 @@ export const getters = {
     const failedTurns = state.cards.reduce(
       (turnsTaken, card) => (
         turnsTaken
-        + (card.status[0] === 'bystander' ? 1 : 0)
-        + (card.status[1] === 'bystander' ? 1 : 0)
+        + (['bystander', 'assassin'].includes(card.status[0]) ? 1 : 0)
+        + (['bystander', 'assassin'].includes(card.status[1]) ? 1 : 0)
       ),
       0,
     );

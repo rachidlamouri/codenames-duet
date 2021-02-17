@@ -4,6 +4,10 @@ module.exports.Element = class {
       throw Error('elementHandle is null');
     }
 
+    if (elementHandle instanceof global.nativePromise) {
+      throw Error('elementHandle is Promise');
+    }
+
     this.element = elementHandle;
   }
 };

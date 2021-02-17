@@ -9,11 +9,11 @@
       id="admin-board"
     />
     <player-board
-      class="player-board-0"
+      id="player-board-0"
       :player-id="0"
     />
     <player-board
-      class="player-board-1"
+      id="player-board-1"
       :player-id="1"
     />
   </div>
@@ -76,11 +76,11 @@ export default {
     grid-area: admin;
   }
 
-  .player-board-0 {
+  #player-board-0 {
     grid-area: player-0;
   }
 
-  .player-board-1 {
+  #player-board-1 {
     grid-area: player-1;
   }
 
