@@ -6,7 +6,7 @@ const { shallowMount } = getMountUtils({
 
 describe('components/CardBoard', () => {
   context('always', () => {
-    it('renders 25 cards in 5 rows', () => {
+    it('renders 25 cards', () => {
       const wrapper = shallowMount();
       expect(wrapper.element).toMatchSnapshot();
     });
